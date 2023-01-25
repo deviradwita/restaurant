@@ -1,1 +1,93 @@
 Part 1 Release 1
+--release 1.1
+create database "RestaurantDB"
+
+--release 1.2
+create table if not exists "Categories"(
+"id" SERIAL primary KEY,
+"name" VARCHAR not NULL
+);
+
+create table if not exists "Menus"(
+"id" SERIAL primary key,
+"name" VARCHAR,
+"stock" INTEGER,
+"price" INTEGER, 
+"createdAt" date, 
+"CategoryId" integer,
+foreign key ("CategoryId")
+	references "Categories" ("id")
+	on delete cascade
+	on update cascade
+);
+
+--release 1.3
+insert into "Categories" ("name")
+values ('Burger');
+
+insert into "Categories" ("name")
+values ('Ayam');
+
+insert into "Categories" ("name")
+values ('Drink');
+
+insert into "Categories" ("name")
+values ('Snack');
+
+insert into "Categories" ("name")
+values ('Paket Family');
+
+insert into "Categories" ("name")
+values ('desert');
+
+select * from "Categories" c;
+select * from "Menus" m
+order by "name" ASC;
+
+update "Categories" 
+set "name" = 'appetizer'
+where "id" =6;
+
+delete from "Categories" 
+where "name" = 'appetizer'
+returning *;
+
+drop table "Menus";
+
+drop table "Categories" 
+
+
+insert into "Menus" ("name", "stock", "price", "createdAt", "CategoryId" )
+values ('Big Burger', 55, 36000, '2021-03-03', 1);
+
+insert into "Menus" ("name", "stock", "price", "createdAt", "CategoryId" )
+values ('Cheeseburger mozarella', 45, 27500, '2021-08-03', 1);
+
+update "Menus"  
+set "name" = 'Cheeseburger Deluxe'
+where "id" =2;
+
+insert into "Menus" ("name", "stock", "price", "createdAt", "CategoryId" )
+values ('Cheeseburger', 40, 28500, '2021-08-03', 1), 
+('Beef Burger',	50,	23000, '2021-03-03', 1),
+('Ayam Goreng', 50, 19000, '2021-03-03', 2),
+('Paket 2 Ayam',35,36000, '2021-03-03', 2),
+('Iced Lychee Tea', 30,	29500,	'2021-03-03', 3),
+('Hot Coffee',20, 11000	, '2021-06-03', 3),
+('Coca-Cola', 30, 13000, '2021-06-03', 3),
+('Sweet Corn', 20,11000	, '2021-03-03', 4),
+('French Fries', 45,	23000,'2021-03-03', 4),
+('Apple Pie', 30, 11000, '2021-03-03', 4),
+('Family Bertiga Ayam',	40,53000, '2021-03-03', 5),
+('Family Weekend Berempat Ayam',	55,	144000,	'2021-07-03', 5),
+('Fish Filet Burger', 25, 27500, '2021-07-03', 1),
+('Spicy Burger'	, 45, 36000, '2021-07-03', 1),
+('Chicken Burder Deluxe', 35, 23000, '2021-07-03', 1), 
+('Milo', 25, 13000, '2021-03-03', 3),
+('Fanta', 25, 13000, '2021-03-03', 3),
+('Nugget', 40, 21000, '2021-03-03', 4),
+('Chicken Bites', 50, 21000, '2021-03-03', 4),
+('Chicken Fingers', 40, 11000, '2021-03-03', 4),
+('Triple Burger With Cheese',	50,	37000,	'2021-03-03', 1);
+
+
