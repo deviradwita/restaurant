@@ -67,6 +67,8 @@ update "Menus"
 set "name" = 'Cheeseburger Deluxe'
 where "id" =2;
 
+
+--release 1.4
 insert into "Menus" ("name", "stock", "price", "createdAt", "CategoryId" )
 values ('Cheeseburger', 40, 28500, '2021-08-03', 1), 
 ('Beef Burger',	50,	23000, '2021-03-03', 1),
@@ -89,5 +91,9 @@ values ('Cheeseburger', 40, 28500, '2021-08-03', 1),
 ('Chicken Bites', 50, 21000, '2021-03-03', 4),
 ('Chicken Fingers', 40, 11000, '2021-03-03', 4),
 ('Triple Burger With Cheese',	50,	37000,	'2021-03-03', 1);
+
+
+--release 1.5
+drop table if exists "Menus", "Categories";
 
 
