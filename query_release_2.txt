@@ -1,1 +1,64 @@
 Part 1 Release 2
+
+--release 2.1 menu beserta kategorinya.
+SELECT "m".*, "c"."id", c."name" as "categoryName"
+FROM "Menus" m 
+INNER JOIN "Categories" c ON m."CategoryId" = c."id"
+
+--release 2.2 menu dengan kategori Snack.
+SELECT "m".*, c."name" as "categoryName"
+FROM "Menus" m 
+INNER JOIN "Categories" c ON m."CategoryId" = c."id"
+WHERE c."name" = 'Snack';
+
+--release 2.3 menu dengan stock terbanyak dari kategori Burger.
+
+
+SELECT m."name", m."stock"  
+FROM "Menus" m 
+INNER JOIN "Categories" c ON m."CategoryId" = c."id"
+WHERE m."stock" =(
+	select MAX(m."stock")
+	from "Menus" m 
+) and c."name" = 'Burger' ;
+
+
+
+
+
+--release 2.4 menu beserta kategorinya dengan harga termahal.
+SELECT m."name", c."name" as "categoryName", m."price"
+FROM "Menus" m 
+INNER JOIN "Categories" c ON m."CategoryId" = c."id"
+where m."price" = (
+	select MAX(m."price") 
+	FROM "Menus" m 
+)
+
+
+
+--release 2.5  harga rata-rata dari menu yang mempunyai kategori Ayam.
+
+select avg(m."price"), c."name" 
+from "Menus" m 
+JOIN "Categories" c ON m."CategoryId" = c."id"
+WHERE c."name" = 'Ayam'
+group by c."name";
+
+
+--release 2.6 jumlah stok dari menu yang mempunyai kategori Drink.
+select SUM(m."stock"), c."name" 
+from "Menus" m 
+JOIN "Categories" c ON m."CategoryId" = c."id"
+WHERE c."name" = 'Drink'
+group by c."name";
+ 
+--release 2.7 Tampilkan jumlah stok dari menu yang ditambahkan di bulan agustus dari kategori Burger.
+
+select SUM(m."stock"), c."name" 
+from "Menus" m 
+JOIN "Categories" c ON m."CategoryId" = c."id"
+WHERE c."name" = 'Burger'and DATE_PART('month', m."createdAt") =8
+group by c."name";
+
+
