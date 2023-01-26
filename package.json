@@ -1,0 +1,22 @@
+{
+  "name": "restaurant",
+  "version": "1.0.0",
+  "description": "Biasakan commit setiap release dan push pada jam 12 siang, jam 6 sore dan sebelum tidur.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hck-55-carbon-fox/restaurant.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hck-55-carbon-fox/restaurant/issues"
+  },
+  "homepage": "https://github.com/hck-55-carbon-fox/restaurant#readme",
+  "dependencies": {
+    "pg": "^8.8.0"
+  }
+}
