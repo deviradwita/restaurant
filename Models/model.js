@@ -9,7 +9,7 @@ class Model {
     SELECT "m".*, c."name" as "categoryName"
     FROM "Menus" m 
     INNER JOIN "Categories" c ON m."CategoryId" = c."id"
-    WHERE c."name" = 'Drink' and DATE_PART('month', m."createdAt") between 5 and 6;
+    WHERE c."name" = 'Drink' and m."createdAt" between '2021-05-01' and '2021-06-09'
     `;
     // console.log(query1);
     pool.query(query1, (err, res) => {
@@ -17,8 +17,6 @@ class Model {
         cb(err);
       } else {
         const data = res.rows.map((el) => {
-        //   return new GirlGroup(el.name, el.member, el.debutSong, el.company);
-        //name, category, stock, price, createdAt
         return Factory.createMenu(el.name, el.categoryName, el.stock, el.price, el.createdAt)
         // console.log(el);
         });

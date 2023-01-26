@@ -26,11 +26,11 @@ VALUES ${menus.join(",\n")}
 
 pool.query(queryCategories, (err, res)=>{
 if(err){
-    console.log(`Error : ${err}`);
+    console.log(`Failed on seeding Categories`);
 } else{
     pool.query(queryMenus, (err, res)=>{
         if(err){
-            console.log(`Error : ${err}`);
+            console.log(`Failed on seeding Menus`);
         } else{
             console.log("Sucessfully seeding");
         }

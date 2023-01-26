@@ -8,7 +8,7 @@ class Controller {
             if(err){
                 View.showError(err)
             } else{
-                View.showMenuDrink(data)
+                View.showData(data)
             }
             
         })
@@ -19,7 +19,7 @@ class Controller {
             if(err){
                 View.showError(err)
             } else{
-                View.showMenuStock(data)
+                View.showData(data)
             }
             
         })
@@ -30,7 +30,7 @@ class Controller {
             if (err) {
                 View.showError(err)
             } else {
-                View.showBurgerMenu(data)
+                View.showData(data)
             }
         })
     }
@@ -40,7 +40,7 @@ class Controller {
             if (err) {
                 View.showError(err)
             } else {
-                View.showMenuWithStock(data)
+                View.showData(data)
             }
         })
     }
@@ -50,7 +50,7 @@ class Controller {
             if (err) {
                 View.showError(err)
             } else {
-                View.sales(data)
+                View.showData(data)
             }
         })
     }

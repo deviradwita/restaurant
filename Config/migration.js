@@ -29,17 +29,17 @@ create table if not exists "Menus"(
 
 pool.query(queryDrop, (err, res) => {
   if (err) {
-    console.log(err);
+    console.log("Failed drop table");
   } else {
     pool.query(queryCategories, (err, res) => {
       if (err) {
-        console.log("error: ", err);
+        console.log("Failed on created table Categories");
       } else {
         console.log("sucessfuly create menus table");
 
         pool.query(queryMenu, (err, res) => {
           if (err) {
-            console.log("error: ", err);
+            console.log("Failed on created table Menus");
           } else {
             console.log("sucessfuly create categories table");
           }

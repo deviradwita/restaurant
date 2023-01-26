@@ -3,9 +3,9 @@
 class Menu {
     constructor(name, category, stock, price, createdAt){
         this.name= name
-        this.category= category
-        this.stock= stock
         this.price= price
+        this.stock= stock
+        this.category= category
         this.createdAt = createdAt
     }
 
