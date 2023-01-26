@@ -15,8 +15,8 @@ class Menu {
 class Category{
     constructor(category, totalStock, totalSales){
         this.category=category
-        this.totalStock= totalStock
-        this.totalSales= totalSales
+        this.totalStock= +totalStock
+        this.totalSales= +totalSales
     }
 }
 
